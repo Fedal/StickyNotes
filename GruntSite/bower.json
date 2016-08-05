@@ -1,0 +1,17 @@
+{
+  "name": "my-app",
+  "authors": [
+    "Fedal <belenesi_david@yahoo.com>"
+  ],
+  "description": "trololol",
+  "main": "gruntfile.js",
+  "keywords": [
+    "lol"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.0"
+  }
+}
