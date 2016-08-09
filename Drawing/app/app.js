@@ -71,18 +71,17 @@ function SizeButtons() {
     bigBtn.className = "btn btn-primary btn-lg btn-block btn-warning";
   }
 }
-function Shape(fill) {
+function Shape() {
   //this.x = x || 0;
   //this.y = y || 0;
   //this.w = w || 1;
   //this.h = h || 1;
-  this.fill = fill || '#AAAAAA';
+  //this.fill = fill || '#AAAAAA';
 }
 
 // Draws this shape to a given context
 Shape.prototype.draw = function (ctx) {
-  ctx.fillStyle = this.fill;
-  ctx.fillRect(this.x, this.y, this.w, this.h);
+  
 }
 
 
@@ -91,25 +90,30 @@ Shape.prototype.contains = function (mx, my) {
           (this.y <= my) && (this.y + this.h >= my);
 }
 
-function Rectangle(x,y,w,h) {
+function Rectangle(x,y,w,h,fill) {
   //this.__proto__ = new Shape(x,y,w,h,fill);
   this.x = x || 0;
   this.y = y || 0;
   this.w = w || 1;
   this.h = h || 1;
-  
+  this.fill = fill;
 }
 
-Rectangle.prototype = new Shape(shapeColor);
+Rectangle.prototype = new Shape();
+Rectangle.prototype.draw = function (ctx) {
+    ctx.fillStyle = this.fill;
+    ctx.fillRect(this.x, this.y, this.w, this.h);
+}
 //var rect = new Rectangle(10, 10, 200, 200);
 //rect.contains(50,60);
 
 
-function Triangle(x, y, w, h) {
+function Triangle(x, y, w, h, fill) {
   this.x = x || 0;
   this.y = y || 0;
   this.w = w || 1;
   this.h = h || 1;
+  this.fill = fill;
 }
 
 Triangle.prototype = new Shape(shapeColor);
@@ -126,17 +130,18 @@ Triangle.prototype.draw = function (ctx) {
     ctx.closePath();
 }
 
-function Circle(x,y,r) {
+function Circle(x,y,r,fill) {
   this.x = x;
   this.y = y;
   this.radius = r;
+  this.fill = fill;
 }
 
 Circle.prototype = new Shape(shapeColor);
 Circle.prototype.draw = function (ctx) {
   ctx.beginPath();
   ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-  ctx.fillStyle = "#00FFAA";
+  ctx.fillStyle = this.fill;
   ctx.fill();
   ctx.stroke();
 }
@@ -230,35 +235,35 @@ function CanvasState(canvas) {
     var mouse = myState.getMouse(e);
     if (shapeType === 0) {
       if (shapeSize === 0) {
-        myState.addShape(new Rectangle(mouse.x - 10, mouse.y - 10, 50, 50));
+        myState.addShape(new Rectangle(mouse.x - 10, mouse.y - 10, 50, 50,shapeColor));
       }
       if (shapeSize === 1) {
-        myState.addShape(new Rectangle(mouse.x - 10, mouse.y - 10, 125, 125));
+        myState.addShape(new Rectangle(mouse.x - 10, mouse.y - 10, 125, 125,shapeColor));
       }
       if (shapeSize === 2) {
-        myState.addShape(new Rectangle(mouse.x - 10, mouse.y - 10, 200, 200));
+        myState.addShape(new Rectangle(mouse.x - 10, mouse.y - 10, 200, 200,shapeColor));
       }
     }
     if (shapeType === 1) {
       if (shapeSize === 0) {
-        myState.addShape(new Triangle(mouse.x - 10, mouse.y - 10, 50, 50));
+        myState.addShape(new Triangle(mouse.x - 10, mouse.y - 10, 50, 50,shapeColor));
       }
       if (shapeSize === 1) {
-        myState.addShape(new Triangle(mouse.x - 10, mouse.y - 10, 125, 125));
+        myState.addShape(new Triangle(mouse.x - 10, mouse.y - 10, 125, 125,shapeColor));
       }
       if (shapeSize === 2) {
-        myState.addShape(new Triangle(mouse.x - 10, mouse.y - 10, 200, 200));
+        myState.addShape(new Triangle(mouse.x - 10, mouse.y - 10, 200, 200,shapeColor));
       }
     }
     if (shapeType === 2) {
       if (shapeSize === 0) {
-        myState.addShape(new Circle(mouse.x - 10, mouse.y - 10, 50));
+        myState.addShape(new Circle(mouse.x - 10, mouse.y - 10, 50,shapeColor));
       }
       if (shapeSize === 1) {
-        myState.addShape(new Circle(mouse.x - 10, mouse.y - 10, 125));
+        myState.addShape(new Circle(mouse.x - 10, mouse.y - 10, 125,shapeColor));
       }
       if (shapeSize === 2) {
-        myState.addShape(new Circle(mouse.x - 10, mouse.y - 10, 200));
+        myState.addShape(new Circle(mouse.x - 10, mouse.y - 10, 200,shapeColor));
       }
     }
   }, true);
