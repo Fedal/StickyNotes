@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <title></title>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="bower_components/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css" />
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="well lg-well">
+					<canvas id="myCanvas" width="700" height="600" style="border: 3px solid black;"></canvas>
+				</div>
+			</div>
+			<!-- Start of right hand-side page (the form)-->
+			<div class="col-md-4" style="height: 100%;">
+
+
+				<h2 class="page-header">Select shape type to add</h2>
+				<button id="rectangleBtn" class="btn btn-primary btn-lg btn-block">Rectangle</button>
+				<button id="triangleBtn" class="btn btn-primary btn-lg btn-block">Triangle</button>
+				<button id="circleBtn" class="btn btn-primary btn-lg btn-block">Circle</button>
+
+
+			</div>
+			<div class="col-md-4" style="height: 100%;">
+				<h2 class="page-header">Specific shape options</h2>
+				<div class="col-md-4">
+					<button id="smallBtn" class="btn btn-primary btn-lg btn-block btn-success">Small</button>
+				</div>
+				<div class="col-md-4">
+					<button id="mediumBtn" class="btn btn-primary btn-lg btn-block btn-success">Medium</button>
+				</div>
+				<div class="col-md-4">
+					<button id="bigBtn" class="btn btn-primary btn-lg btn-block btn-success">Big</button>
+				</div>
+			</div>
+
+			<div class="col-md-4" style="height: 100%;">
+				<h2 class="page-header">Color options</h2>
+					<div id="cp2" class="col-md-12 input-group colorpicker-component">
+						<a id="cp2" class="btn btn-primary btn-lg btn-block">Change shape color</a>
+					</div>
+			</div>
+		</div>
+	</div>
+
+	<!--JQuery-->
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<!-- Bootstrap-colorpicker -->
+	<script src="bower_components/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js"></script>
+	<!--Bootstrap-->
+	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<!-- Underscore -->
+	<script src="bower_components/underscore/underscore.js"></script>
+	<!-- MyScript -->
+	<script src="app/app.js"></script>
+</body>
+</html>
